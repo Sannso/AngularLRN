@@ -12,7 +12,7 @@ export class EmpleadoComponent implements OnInit {
   private codigo = "1002"
   edad = "43"
   empresa = "Nose.SA" 
-
+  squareEnable = true
 
   constructor() { }
 
@@ -27,5 +27,8 @@ export class EmpleadoComponent implements OnInit {
     return parseInt(this.edad)
   }
 
+  setEmpresa(value:string){
+    this.empresa = value
+  }
 
 }

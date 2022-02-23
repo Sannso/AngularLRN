@@ -1,6 +1,11 @@
 <p>Nombre y apellido del empleado: {{ nombre +" "+ apellido }}</p>
 <p>Codigo del empleado: {{ getCodigo() }}</p>
-<p>Edad del empleado: {{ edad + " | " + (getEdad() >= 18 ? "Es mayor de edad" : "Es menor de edad") }}</p>
+<p>Edad del empleado: 
+    {{ edad + " | " + (getEdad() >= 18 ? "Es mayor de edad" : "Es menor de edad") }}</p>
 <p>Empresa del empleado: {{ empresa }}</p>
 <br>
 
+Introduce la empresa: <input type="text" #inputEmpresa [disabled]="squareEnable">
+<br><br>
+<input type="button" value="Dale" (click)="setEmpresa(inputEmpresa.value)">
+<br> <br> <br>
