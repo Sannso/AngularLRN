@@ -5,7 +5,19 @@
 <p>Empresa del empleado: {{ empresa }}</p>
 <br>
 
-Introduce la empresa: <input type="text" #inputEmpresa [disabled]="squareEnable">
+<!--Introduce la empresa: <input type="text" #inputEmpresa [disabled]="squareEnable">-->
+Introduce la empresa: <input type="text" [(ngModel)]="empresa">
 <br><br>
-<input type="button" value="Dale" (click)="setEmpresa(inputEmpresa.value)">
+<!--<input type="button" value="Dale" (click)="setEmpresa(inputEmpresa.value)">-->
+<br><br>
+{{ userStatus }}
+<br>
+Registrar: <input type="radio" name="rR" value="si" (click)="setUserStatus($event)">
+<br>
+No Registrar: <input type="radio" name="rR" value="no" (click)="setUserStatus($event)">
+
+<br> <br>
+Registrado: <input type="checkbox" id="registro" (click) ="messegeUserRegister()">
+<h3>Registrados: {{ registros }}</h3>
+
 <br> <br> <br>

@@ -12,7 +12,9 @@ export class EmpleadoComponent implements OnInit {
   private codigo = "1002"
   edad = "43"
   empresa = "Nose.SA" 
-  squareEnable = true
+  squareEnable = false
+  registros = 0
+  userStatus = "El usuario no esta registrado"
 
   constructor() { }
 
@@ -26,9 +28,24 @@ export class EmpleadoComponent implements OnInit {
   getEdad(){
     return parseInt(this.edad)
   }
-
-  setEmpresa(value:string){
-    this.empresa = value
+  
+  setUserStatus(event:Event){
+    if((<HTMLInputElement>event.target).value == "si"){
+      this.userStatus = "El usuario esta registrado"
+    }else{
+      this.userStatus = "El usuario no esta registrado"
+    }
   }
+
+  messegeUserRegister(){
+    //alert("El usuario se ha registrado")
+    this.registros +=1
+  }
+
+  // Para el biding bidireccional es necesario agragar modulo 
+  // FormsModule
+  /*setEmpresa(value:string){
+    this.empresa = value
+  }*/
 
 }
