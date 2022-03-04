@@ -1,0 +1,7 @@
+Crear nuevo proyecto: ng new "nombreapp"
+
+
+app.module -> add -> FormsModule
+bootstrap -> npm install bootstrap --save
+	-> angular.json -> style -> "node_modules/bootstrap/dist/css/bootstrap.min.css"
+	-> angular.json -> script -> "node_modules/bootstrap/dist/js/bootstrap.min.js"

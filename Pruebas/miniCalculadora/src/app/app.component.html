@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>{{ title }} is running!</span>
+    <br><br><br>
+
+    <div class="container">
+        <form>
+            Ingrese el primer numero: <input type="number" [(ngModel)]="numero1" name="n1" >
+            <br><br>
+            Ingrese el segundo numero: <input type="number" [(ngModel)]="numero2" name="n2"> 
+            <br><br><br>
+            Operacion a realizar:
+            <input type="button" value="Sumar" class="btn btn-primary"
+            (click)="setOperacion($event) ">
+            <input type="button" value="Restar" class="btn btn-warning" 
+            (click)="setOperacion($event)">
+            <br><br><br>
+            Resultado: {{ resultado }}
+        </form>
+    </div>
+</body>
+</html>
