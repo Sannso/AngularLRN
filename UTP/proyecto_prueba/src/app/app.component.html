@@ -1,0 +1,32 @@
+
+<h1>Nuevo proyecto "{{title}}" </h1>
+<h2>Hola {{nombre}}</h2>
+
+<br><br>
+<h4>Imagen</h4>
+<img [src]=imageUrl alt="">
+<input class="btnChange" type="button" value="Change img" (click)="changeImg()">
+
+<br><br><br>
+
+<h3>Lista de nombres</h3>
+<ol>
+  <li *ngFor="let item of nombres">{{item}}</li>
+</ol>
+
+
+<input type="text" name="name" #name>
+<input type="button" value="Add name" (click)="addLastElement(name.value)">
+<br>
+<input type="button" value="Delete first name" (click)="deleteFirstElement()">
+<input type="button" value="Delete first name" (click)="deleteLastElement()">
+<br><br><br>
+
+<h3>Lista de usuarios</h3>
+<ul>
+  <li *ngFor="let item of usuarios">id: {{item.idUsuario}} | nombre: {{item.nombre}}</li>
+</ul>
+<input type="text" name="id" #id>
+<input type="button" value="Delete by ID" (click)="deleteByID(id.value)">
+
+<router-outlet></router-outlet>
