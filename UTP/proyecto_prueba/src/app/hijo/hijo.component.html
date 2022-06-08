@@ -1,0 +1,9 @@
+<p>Mensaje enviado de padre: {{recibido}}</p>
+<p>Segundo mensaje enviado de padre: {{recibido2}}</p>
+
+<h4>Info usuarios</h4>
+<ul>
+  <li *ngFor="let item of usuarios"> nombre: {{item.nombre}} | edad: {{item.edad}} | id: {{item.idUsuario}} </li>
+</ul>
+
+<button (click)="enviar()">Enviar a papá</button>

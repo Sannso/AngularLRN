@@ -1,0 +1,53 @@
+<p>padre works!</p>
+
+<div>
+<h4>Enviar mensaje a hijo: {{saludo}} </h4>
+<input type="button" value="Enviar" (click)="sendMssToHijo()">
+
+<br><br>
+<button pButton type="button" label="Click"></button>
+
+<h5>Esta informacion se encuentra en el html del hijo</h5>
+<app-hijo [recibido]="mssToHijo" [recibido2]="mssToHijo2" [usuarios]="infoUsuarios" (enviarPapa)="recibirSaludo($event)"></app-hijo>
+</div>
+
+
+<br><br>
+<div class="card">
+  <div class="fiel grid">
+      <div class="p-inputgroup">
+          <button type="button" pButton pRipple label="Nombre"></button>
+          <input type="text" pInputText placeholder="Keyword">
+      </div>
+  </div><br>
+
+  <div class="fiel grid">
+    <div class="p-inputgroup">
+        <button type="button" pButton pRipple label="Edad"></button>
+        <input type="text" pInputText placeholder="Keyword">
+    </div>
+  </div><br>
+
+  <div class="fiel grid">
+    <div class="p-inputgroup">
+        <button type="button" pButton pRipple label="Estado"></button>
+        <input type="text" pInputText placeholder="Keyword">
+    </div>
+  </div><br>
+
+  <div class="fiel grid">
+    <div class="p-inputgroup">
+        <button type="button" pButton pRipple label="Id Usuario"></button>
+        <input type="text" pInputText placeholder="Keyword">
+    </div>
+  </div>
+
+</div>
+
+
+<br><br>
+<input [(ngModel)]="usuario.nombre"><br>
+<input [(ngModel)]="usuario.edad"><br>
+<input [(ngModel)]="usuario.estado"><br>
+<input [(ngModel)]="usuario.idUsuario"><br>
+<button (click)="mostrarUsuario()">Mostrar info consola</button>
