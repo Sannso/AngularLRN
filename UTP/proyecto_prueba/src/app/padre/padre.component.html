@@ -1,3 +1,4 @@
+<!--
 <p>padre works!</p>
 
 <div>
@@ -13,41 +14,126 @@
 
 
 <br><br>
-<div class="card">
-  <div class="fiel grid">
+<div class="grid p-fluid">
+  <div class="col-12 md:col-4">
       <div class="p-inputgroup">
-          <button type="button" pButton pRipple label="Nombre"></button>
-          <input type="text" pInputText placeholder="Keyword">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input type="text" pInputText placeholder="Username">
       </div>
-  </div><br>
-
-  <div class="fiel grid">
-    <div class="p-inputgroup">
-        <button type="button" pButton pRipple label="Edad"></button>
-        <input type="text" pInputText placeholder="Keyword">
-    </div>
-  </div><br>
-
-  <div class="fiel grid">
-    <div class="p-inputgroup">
-        <button type="button" pButton pRipple label="Estado"></button>
-        <input type="text" pInputText placeholder="Keyword">
-    </div>
-  </div><br>
-
-  <div class="fiel grid">
-    <div class="p-inputgroup">
-        <button type="button" pButton pRipple label="Id Usuario"></button>
-        <input type="text" pInputText placeholder="Keyword">
-    </div>
   </div>
 
+  <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">$</span>
+          <input type="text" pInputText placeholder="Price">
+          <span class="p-inputgroup-addon">.00</span>
+      </div>
+  </div>
+
+  <div class="col-12 md:col-4">
+      <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">www</span>
+          <input type="text" pInputText placeholder="Website">
+      </div>
+  </div>
+</div>
+-->
+
+<div class="card">
+  <h3>Ingresar usuario</h3>
+  <form [formGroup]="formUsuario" (ngSubmit)="guardarUsuario()" class="formgrid grid">
+      <div class="field col-2 md:col-2">
+          <label for="name">Nombre</label>
+          <input formControlName="nombre" id="name" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ml-3">
+      </div>
+      <div class="field col-10 md:col-10">
+          <label for="ape">Apellido</label>
+          <input formControlName="apellido" id="ape" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ml-2">
+      </div>
+      <div class="field col-2 md:col-2">
+        <label for="tel">Telefono</label>
+        <input formControlName="telefono" id="tel" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ml-2">
+      </div>
+      <div class="field col-10 md:col-10">
+        <label for="email">Email</label>
+        <input formControlName="email" id="email" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ml-4">
+      </div>
+      <button pButton type="submit" [disabled]="formUsuario.invalid" label="Registrar usuario" class="p-button-success field col-1 col-offset-1 p-1"></button>
+    </form>
 </div>
 
 
-<br><br>
-<input [(ngModel)]="usuario.nombre"><br>
-<input [(ngModel)]="usuario.edad"><br>
-<input [(ngModel)]="usuario.estado"><br>
-<input [(ngModel)]="usuario.idUsuario"><br>
-<button (click)="mostrarUsuario()">Mostrar info consola</button>
+<div class="card">
+  <h3>Consultar usuario</h3>
+  <form [formGroup]="formFindUser" (ngSubmit)="consultarUsuario()" class="formgrid grid">
+      <div class="field col-2 md:col-2">
+          <label for="name">ID Usuario</label>
+          <input formControlName="nombre" id="name" type="number" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ml-3">
+      </div>
+      <button pButton type="submit" [disabled]="formUsuario.invalid" label="Buscar usuario" class="p-button-success field col-1 p-1"></button>
+    </form>
+</div>
+
+<ng-container *ngIf="loadUser">
+  <h3>Usuario encontrado</h3>
+  <p-table [value]="user">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>Email</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.nombre}</td>
+            <td>{{user.apellido}}</td>
+            <td>{{user.telefono}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </ng-template>
+  </p-table>
+</ng-container>
+
+
+
+<!--
+<h3>Usuarios registrados</h3>
+<p-table [value]="products" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+      <tr>
+          <td>{{product.code}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.category}}</td>
+          <td>{{product.quantity}}</td>
+      </tr>
+  </ng-template>
+</p-table>
+
+
+
+<ng-container *ngIf="!isLogged ; else logueado">
+  <br>
+  <h3>Modulo iniciar sesion</h3>
+  <button (click)="isLogged = true"> Iniciar sesion</button>
+  <h5>{{nivel}}</h5>
+  <h4 *ngIf="nivel > 10">Ya tienes mas de 10 niveles!!</h4>
+  <button (click)="nivel = nivel + 1"> Aumentar nivel</button>
+</ng-container>
+
+<ng-template #logueado>
+  <h4>Has iniciado sesion</h4>
+  <button (click)="isLogged = false"> Cerrar sesion</button>
+</ng-template>
+-->

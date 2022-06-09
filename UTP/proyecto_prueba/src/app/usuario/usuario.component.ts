@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioComponent{
 
-  public idUsuario: number | undefined;
-  public nombre: string | undefined;
-  public edad: number | undefined;
-  public estado: boolean | undefined;
+  public idUsuario: number | undefined | null;
+  public nombre: string | undefined | null;
+  public edad: number | undefined | null;
+  public estado: boolean | undefined | null;
 
 }

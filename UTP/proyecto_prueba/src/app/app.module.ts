@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { PadreComponent } from './padre/padre.component';
 import { HijoComponent } from './hijo/hijo.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { HttpClientModule } from '@angular/common/http';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,12 @@ import { ButtonModule } from 'primeng/button';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule, ButtonModule
+    AppRoutingModule,
+    FormsModule,
+    ButtonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
