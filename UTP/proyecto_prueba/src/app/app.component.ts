@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsuarioComponent } from './usuario/usuario.component';
 
 @Component({
@@ -14,7 +15,7 @@ export class AppComponent {
   public usuarios: UsuarioComponent[] = [];
   public imageUrl: string = "https://placeimg.com/600/300/any";
 
-  constructor(){
+  constructor(private router: Router){
     this.addLastElement("Ana");
     this.nombres = this.concat(this.nombres, this.nombres2);
 
@@ -31,6 +32,8 @@ export class AppComponent {
     usuario2 = {nombre: "Alejandra Zapata", edad: 22, idUsuario: 2, estado: true};
     this.usuarios.push(usuario);
     this.usuarios.push(usuario2);
+
+    router.navigate(['login']);
   }
 
   public changeImg() : void{

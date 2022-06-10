@@ -62,21 +62,24 @@
     </form>
 </div>
 
+<br><br>
 
 <div class="card">
   <h3>Consultar usuario</h3>
   <form [formGroup]="formFindUser" (ngSubmit)="consultarUsuario()" class="formgrid grid">
       <div class="field col-2 md:col-2">
           <label for="name">ID Usuario</label>
-          <input formControlName="nombre" id="name" type="number" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ml-3">
+          <input formControlName="id" id="name" type="number" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ml-3">
       </div>
-      <button pButton type="submit" [disabled]="formUsuario.invalid" label="Buscar usuario" class="p-button-success field col-1 p-1"></button>
-    </form>
+      <div class="field col-2 md:col-2 ">
+        <button pButton type="submit" [disabled]="formFindUser.invalid" label="Buscar usuario" class="p-button-success field col-2 p-1" style="width: 150px; height: 40px; top:20px;" icon="pi pi-search" iconPos="right"></button>
+      </div>
+  </form>
 </div>
 
 <ng-container *ngIf="loadUser">
-  <h3>Usuario encontrado</h3>
-  <p-table [value]="user">
+  <h3>Historial de usuarios encontrado</h3>
+  <p-table [value]="users">
     <ng-template pTemplate="header">
         <tr>
             <th>ID</th>
@@ -86,10 +89,10 @@
             <th>Email</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-product>
+    <ng-template pTemplate="body" let-user>
         <tr>
             <td>{{user.id}}</td>
-            <td>{{user.nombre}</td>
+            <td>{{user.nombre}}</td>
             <td>{{user.apellido}}</td>
             <td>{{user.telefono}}</td>
             <td>{{user.email}}</td>

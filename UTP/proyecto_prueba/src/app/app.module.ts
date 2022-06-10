@@ -10,13 +10,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
+import { LoginComponent } from './login/login.component';
+import { RickandmortyComponent } from './rickandmorty/rickandmorty.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
     PadreComponent,
-    HijoComponent
+    HijoComponent,
+    LoginComponent,
+    RickandmortyComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
