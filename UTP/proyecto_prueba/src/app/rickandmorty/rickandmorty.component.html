@@ -1,1 +1,97 @@
-<p>rickandmorty works!</p>
+<div class="grid justify-content-center align-content-center">
+    <h4 class="grid col-12 justify-content-center align-content-center">Valores aceptados para: </h4>
+    <div class="grid col-12 justify-content-center align-content-center">
+        <ul>
+            <li>Estado: alive, dead, unknown</li>
+            <li>Especie: human, alien...</li>
+            <li>Genero: female, male, genderless, unknown</li>
+        </ul>
+    </div>
+    
+    
+    
+</div>
+<div class="grid justify-content-center align-content-center">
+    <h3>Buscar Personaje</h3>
+</div>
+<div class="grid justify-content-center align-content-center">
+        <div class="col-6 md:col-4 w-28rem flex align-items-center justify-content-end">
+            <p-dropdown [options]="options" [(ngModel)]="selectedOption" optionLabel="option" optionValue="code" [itemSize]="30"></p-dropdown>
+        </div>
+        <div *ngIf="selectedOption == 'id'" class="col-6 md:col-4 p-inputgroup flex align-items-center justify-content-start">
+            <input style="height: 40px;" type="number" pInputText placeholder="Search character" [(ngModel)]="id">   
+            <button [disabled]="id>0? false: true" (click)="getCharacter()" style="height: 40px;" type="button" pButton pRipple label="Search" styleClass="p-button-warn"></button>      
+        </div>
+        <div *ngIf="selectedOption != 'id'" class="col-6 md:col-4 p-inputgroup flex align-items-center justify-content-start">
+            <input style="height: 40px;" type="text" pInputText placeholder="Search character" [(ngModel)]="inputOption">   
+            <button (click)="getCharacter()" style="height: 40px;" type="button" pButton pRipple label="Search" styleClass="p-button-warn"></button>      
+        </div>
+</div>
+
+<div class="grid justify-content-center align-content-center p-5" *ngIf="isMss">
+    <p-messages [(value)]="mss" [enableService]="false"></p-messages>
+</div>
+
+<div class="grid justify-content-center align-content-center p-5" *ngIf="charExist">
+
+    <ng-container class="grid col-12" >
+        <h3 class="col-12 flex align-items-center justify-content-center">Info del Personaje</h3>
+    </ng-container>
+
+    <ng-container class="grid col-12">
+    <p-table [value]="[character]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Especie</th>
+                <th>Genero</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-character>
+            <tr>
+                <td>{{character.id}}</td>
+                <td>{{character.name}}</td>
+                <td>{{character.status}}</td>
+                <td>{{character.species}}</td>
+                <td>{{character.gender}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </ng-container>
+
+    <div class="grid col-12 flex align-items-center justify-content-center">
+        <img class="col-12 flex align-items-center justify-content-center" style="height: 300px; width: 300px;" src={{character.image}} alt="personajeRickAndMorty">
+    </div>
+</div>
+
+<div class="grid justify-content-center align-content-center p-5" *ngIf="charsExist">
+
+    <ng-container class="grid col-12" >
+        <h3 class="col-12 flex align-items-center justify-content-center">Info de los Personajes</h3>
+    </ng-container>
+
+    <ng-container class="grid col-12">
+    <p-table [value]="charactersFound">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Especie</th>
+                <th>Genero</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-character>
+            <tr>
+                <td>{{character.id}}</td>
+                <td>{{character.name}}</td>
+                <td>{{character.status}}</td>
+                <td>{{character.species}}</td>
+                <td>{{character.gender}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </ng-container>
+</div>

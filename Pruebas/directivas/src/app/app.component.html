@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<div style="text-align: center;">
+  <h1>{{titulo}}</h1>
+  <br><br>
+  <form action="">
+  Nombre: <input type="text" [(ngModel)]="nombre" name="nombre"><br>
+  Apellido: <input type="text" [(ngModel)]="apellido" name="apellido"><br>
+  <input type="button" value="registrar" (click)="registrarUsuario()"> 
+  </form><br><br>
+  <p *ngIf="registrado else sinRegistrar">{{mensaje}}</p>
+  <ng-template #sinRegistrar>
+    <p>No hay nadie registrado</p>
+  </ng-template>
+</div>
+
+<div>
+  <br><h3>Lista automatica FOR</h3><br><br>
+  <ul>
+    <li *ngFor="let ent of entradas">{{ent.title}}</li>
+  </ul>
+</div>
+
+</body>
+</html>

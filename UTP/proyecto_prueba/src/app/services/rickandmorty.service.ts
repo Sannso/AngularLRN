@@ -13,4 +13,8 @@ export class RickandmortyService {
     return this.http.get(environment.apiRM+"/character/"+id);
   }
 
+  public getCharacterByName(name: string){
+    return this.http.get(environment.apiRM+"/character/?name="+name);
+  }
+
 }

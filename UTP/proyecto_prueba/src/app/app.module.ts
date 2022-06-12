@@ -13,6 +13,10 @@ import {TableModule} from 'primeng/table';
 import { LoginComponent } from './login/login.component';
 import { RickandmortyComponent } from './rickandmorty/rickandmorty.component';
 import { RegisterComponent } from './register/register.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { RegisterComponent } from './register/register.component';
     ButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TableModule
+    TableModule,
+    DropdownModule,
+    BrowserAnimationsModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

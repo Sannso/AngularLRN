@@ -1,0 +1,21 @@
+
+<div class="container text-center"> 
+  <h1>Registrar empleado</h1><br>
+  <form>
+    Nombre:   <input [(ngModel)]="nombre" type="text" name="nombre"><br><br>
+    Apellido: <input [(ngModel)]="apellido" type="text" name="apellido"><br><br>
+    Cargo:    <input [(ngModel)]="cargo" type="text" name="cargo"><br><br>
+    Salario:  <input [(ngModel)]="salario" type="text" name="salario"><br><br>
+    <input class="" type="button" value="Registrar" (click)="registrarUsuario()">
+  </form>
+</div>
+<br>
+<div> 
+  <h2>Empleados registrados</h2>
+  <ul *ngIf="registrado else hayEmpleados">
+    <li *ngFor="let item of empleados">{{"Nombre: " + item.nombre}}</li>
+  </ul>
+  <ng-template #hayEmpleados>
+    <p>No hay empleados registrados</p>
+  </ng-template>
+</div>

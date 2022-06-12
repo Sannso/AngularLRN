@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "proyecto_prueba": {
+    "registroEmpleados": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/proyecto_prueba",
+            "outputPath": "dist/registro-empleados",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,12 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeflex/primeflex.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -73,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "proyecto_prueba:build:production"
+              "browserTarget": "registroEmpleados:build:production"
             },
             "development": {
-              "browserTarget": "proyecto_prueba:build:development"
+              "browserTarget": "registroEmpleados:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "proyecto_prueba:build"
+            "browserTarget": "registroEmpleados:build"
           }
         },
         "test": {
@@ -99,15 +94,16 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"]
           }
         }
       }
     }
   },
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "registroEmpleados"
 }

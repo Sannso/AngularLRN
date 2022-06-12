@@ -1,7 +1,17 @@
 Crear nuevo proyecto: ng new "nombreapp"
 
 
+### Dentro de la carpeta del proyecto:
+
 app.module -> add -> FormsModule
-bootstrap -> npm install bootstrap --save
+bootstrap -> npm install bootstrap jquery popper.js --save
 	-> angular.json -> style -> "node_modules/bootstrap/dist/css/bootstrap.min.css"
 	-> angular.json -> script -> "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+
+src- styles - @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+npm install firebase
+npm i @angular/fire
+npm i @firebase/auth

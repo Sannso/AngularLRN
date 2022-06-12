@@ -33,7 +33,7 @@ export class AppComponent {
     this.usuarios.push(usuario);
     this.usuarios.push(usuario2);
 
-    router.navigate(['login']);
+    router.navigate(['rickandmorty']);
   }
 
   public changeImg() : void{
